@@ -6,11 +6,14 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -20,6 +23,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.productexplorer.ui.theme.ProductExplorerTheme
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Star
 
 data class ProductUi(
     val title: String,
@@ -92,10 +97,51 @@ fun ProductDetailScreen(
             price = product.price,
             discountPercentage = product.discountPercentage
         )
-        Text(text = "${product.price} €")
-        Text(text = product.description)
-        Button(onClick = onAddToCartClick){
+        ProductAvailabilityCard(
+            modifier = Modifier.fillMaxWidth().padding(top = 16.dp),
+            stock = product.stock,
+            shippingInformation = product.shippingInformation,
+        )
+        ProductRating(
+            rating = product.rating,
+            modifier = Modifier.padding(top = 16.dp)
+        )
+        ProductDescription(
+            modifier = Modifier.padding(top = 16.dp),
+            description = product.description
+        )
+        Button(
+            shape = RoundedCornerShape(8.dp),
+            onClick = onAddToCartClick,
+            modifier = Modifier.fillMaxWidth().padding(top= 16.dp))
+        {
             Text(text = "Ajouter au panier")
+        }
+    }
+}
+
+
+@Composable
+fun ProductAvailabilityCard(
+    modifier: Modifier = Modifier,
+    stock: Int,
+    shippingInformation: String,
+){
+    val stockLabel : String = if(stock > 1) "unités" else "unité"
+    Card(modifier = modifier){
+        Column(modifier = Modifier.padding(16.dp)){
+            Text(
+                text = "Disponibilité",
+                style = MaterialTheme.typography.titleMedium
+            )
+            Text(
+                text = "Stock : $stock $stockLabel",
+                style = MaterialTheme.typography.bodyMedium
+            )
+            Text(
+                text = "shippingInformation",
+                style = MaterialTheme.typography.bodyMedium
+            )
         }
     }
 }
@@ -148,6 +194,41 @@ fun ProductPriceCard(
     }
 }
 
+@Composable
+fun ProductRating(
+    rating: Double,
+    modifier: Modifier = Modifier
+){
+    Row(modifier = modifier){
+        Icon(
+            imageVector = Icons.Default.Star,
+            contentDescription = "Note du produit"
+        )
+        Text(
+            text = "$rating / 5",
+            modifier = Modifier.padding(start = 8.dp)
+        )
+    }
+}
+
+
+@Composable
+fun ProductDescription(
+    modifier: Modifier = Modifier,
+    description : String
+){
+    Column(modifier = modifier){
+        Text(
+            text = "Description",
+            style = MaterialTheme.typography.titleMedium
+        )
+        Text(
+            text = description,
+            style = MaterialTheme.typography.bodyMedium,
+            modifier = Modifier.padding(top = 4.dp)
+        )
+    }
+}
 
 @Preview(showBackground = true)
 @Composable
