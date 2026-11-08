@@ -1,4 +1,4 @@
-package com.example.productexplorer.ui.product
+package com.example.productexplorer.product
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
