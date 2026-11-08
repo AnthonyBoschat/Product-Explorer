@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.productexplorer.home.components.HomeHeader
+import com.example.productexplorer.home.components.SearchPreviewBar
 import com.example.productexplorer.ui.product.sample.ProductUi
 import com.example.productexplorer.ui.product.sample.sampleProduct
 import com.example.productexplorer.ui.theme.ProductExplorerTheme
@@ -22,8 +23,12 @@ fun ProductHomeScreen(
     onFeaturedProductClick: () -> Unit,
     modifier: Modifier = Modifier
 ){
-    HomeHeader (modifier = modifier.fillMaxSize().padding(16.dp))
-    Spacer(modifier = Modifier.height(24.dp))
+    Column(modifier = modifier.fillMaxSize().padding(16.dp)) {
+        HomeHeader()
+        Spacer(modifier = Modifier.height(24.dp))
+        SearchPreviewBar()
+        Spacer(modifier = Modifier.height(24.dp))
+    }
 }
 
 
