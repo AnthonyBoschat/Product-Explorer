@@ -40,6 +40,12 @@ fun FeaturedProductSection(
                 style = MaterialTheme.typography.bodyMedium
             )
             Spacer(modifier = Modifier.height(12.dp))
+            ProductQuickInfoRow(
+                rating = product.rating,
+                price = product.price,
+                stock = product.stock,
+            )
+            Spacer(modifier = Modifier.height(12.dp))
             Button(onClick = onClick) {
                 Text(text = "Voir le produit")
             }
