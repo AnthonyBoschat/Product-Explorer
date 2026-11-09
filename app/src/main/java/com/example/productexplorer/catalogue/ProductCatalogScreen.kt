@@ -13,6 +13,8 @@ import com.example.productexplorer.product.components.ProductListItem
 import com.example.productexplorer.ui.product.sample.ProductUi
 import androidx.compose.foundation.lazy.items
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.productexplorer.product.components.CategoryRow
+import com.example.productexplorer.ui.product.sample.sampleCategories
 import com.example.productexplorer.ui.product.sample.sampleProducts
 import com.example.productexplorer.ui.theme.ProductExplorerTheme
 
@@ -30,9 +32,13 @@ fun ProductCatalogScreen(
     ) {
         item {
             Text(
-                text = "Catelogue produits",
+                text = "Catalogue produits",
                 style = MaterialTheme.typography.headlineMedium,
             )
+        }
+
+        item {
+            CategoryRow(categories = sampleCategories())
         }
 
         items(

@@ -78,6 +78,10 @@ fun sampleProduct(): ProductUi {
 }
 
 
+fun sampleCategories(): List<String> {
+    return listOf("Smartphones", "Audio", "Wearables", "Maison")
+}
+
 
 fun sampleProductOutOfStock(): ProductUi {
     return ProductUi(
