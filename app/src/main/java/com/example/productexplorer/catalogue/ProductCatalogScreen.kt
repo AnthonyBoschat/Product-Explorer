@@ -1,5 +1,6 @@
 package com.example.productexplorer.catalogue
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,7 +27,7 @@ fun ProductCatalogScreen(
     onProductClick: (ProductUi) -> Unit
 ){
     LazyColumn(
-        modifier = modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize().background(MaterialTheme.colorScheme.background),
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
@@ -34,6 +35,7 @@ fun ProductCatalogScreen(
             Text(
                 text = "Catalogue produits",
                 style = MaterialTheme.typography.headlineMedium,
+                color = MaterialTheme.colorScheme.primary
             )
         }
         item {
@@ -63,8 +65,19 @@ fun ProductCatalogScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun ProductCatalogScreenPreview(){
-    ProductExplorerTheme{
+fun ProductCatalogScreenLightPreview(){
+    ProductExplorerTheme(darkTheme = false){
+        ProductCatalogScreen(
+            products = sampleProducts(),
+            onProductClick = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ProductCatalogScreenDarkPreview(){
+    ProductExplorerTheme(darkTheme = true){
         ProductCatalogScreen(
             products = sampleProducts(),
             onProductClick = {}
