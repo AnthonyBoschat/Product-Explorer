@@ -25,12 +25,17 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ProductExplorerTheme {
+            ProductExplorerTheme(darkTheme = true) {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    ProductCatalogScreen(
+//                    ProductCatalogScreen(
+//                        modifier = Modifier.padding(innerPadding),
+//                        products = sampleProducts(),
+//                        onProductClick = {}
+//                    )
+                    ProductHomeScreen(
                         modifier = Modifier.padding(innerPadding),
-                        products = sampleProducts(),
-                        onProductClick = {}
+                        featuredProduct = sampleProduct(),
+                        onFeaturedProductClick = {}
                     )
                 }
             }

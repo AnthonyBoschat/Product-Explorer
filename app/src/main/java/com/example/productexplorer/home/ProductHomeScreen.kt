@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,7 +28,6 @@ fun ProductHomeScreen(
     onFeaturedProductClick: () -> Unit,
     modifier: Modifier = Modifier
 ){
-    Surface(modifier) {
         Column(modifier = modifier.fillMaxSize().padding(16.dp)) {
             HomeHeader()
             Spacer(modifier = Modifier.height(24.dp))
@@ -43,31 +43,31 @@ fun ProductHomeScreen(
             )
             Spacer(modifier = Modifier.height(24.dp))
         }
-
-    }
 }
 
 
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun ProductHomeScreenPreview() {
-    ProductExplorerTheme(darkTheme = false) {
-        ProductHomeScreen(
-            featuredProduct = sampleProduct(),
-            onFeaturedProductClick = {}
-        )
-    }
+    ProductHomeScreenPreviewContent(darkTheme = false)
 }
 
-
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun ProductHomeScreenDarkPreview() {
-    ProductExplorerTheme(darkTheme = true) {
-        ProductHomeScreen(
-            featuredProduct = sampleProduct(),
-            onFeaturedProductClick = {}
-        )
+    ProductHomeScreenPreviewContent(darkTheme = true)
+}
+
+@Composable
+private fun ProductHomeScreenPreviewContent(darkTheme: Boolean) {
+    ProductExplorerTheme(darkTheme = darkTheme) {
+        Scaffold { innerPadding ->
+            ProductHomeScreen(
+                modifier = Modifier.padding(innerPadding),
+                featuredProduct = sampleProduct(),
+                onFeaturedProductClick = {}
+            )
+        }
     }
 }

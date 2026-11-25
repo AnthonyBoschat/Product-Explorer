@@ -11,6 +11,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.productexplorer.ui.product.sample.ProductUi
@@ -24,9 +25,10 @@ fun FeaturedProductSection(
     Surface (
         modifier = modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.large,
-        tonalElevation = 4.dp
+        tonalElevation = 4.dp,
+
     ){
-        Column(modifier = modifier.padding(16.dp)) {
+        Column(modifier = Modifier.padding(16.dp)) {
             Text(
                 text = "Produit mis en avant",
                 style = MaterialTheme.typography.titleMedium
@@ -52,7 +54,8 @@ fun FeaturedProductSection(
                 colors = ButtonDefaults.buttonColors(
                     containerColor = MaterialTheme.colorScheme.tertiary,
                     contentColor = MaterialTheme.colorScheme.onTertiary
-                )
+                ),
+                modifier = Modifier.align(Alignment.End).padding(top = 28.dp)
             ) {
                 Text(text = "Voir le produit", )
             }

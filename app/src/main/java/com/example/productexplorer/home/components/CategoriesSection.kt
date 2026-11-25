@@ -1,5 +1,6 @@
 package com.example.productexplorer.home.components
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -20,11 +21,9 @@ fun CategoriesSection(
             style = MaterialTheme.typography.titleMedium
         )
         Spacer(modifier = Modifier.height(8.dp))
-        Row() {
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             CategoryChip(label = "Smartphones")
-            Spacer(modifier = Modifier.weight(1f))
             CategoryChip(label = "Audio")
-            Spacer(modifier = Modifier.weight(1f))
             CategoryChip(label = "Maison")
         }
     }
