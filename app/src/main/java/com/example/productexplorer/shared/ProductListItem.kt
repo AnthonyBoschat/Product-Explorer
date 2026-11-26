@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -23,6 +22,8 @@ import com.example.productexplorer.ProductUi
 @Composable
 fun ProductListItem(
     product: ProductUi,
+    isFavorite: Boolean,
+    onFavoriteClick: () -> Unit,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -33,37 +34,55 @@ fun ProductListItem(
     ) {
         Surface(tonalElevation = 4.dp) {
 
-        Column(
-            modifier = Modifier.fillMaxWidth().padding(16.dp)
-        ) {
-            Text(
-                text = product.title,
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurface
-            )
-            Text(
-                text = product.brand,
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.secondary
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = "${product.price} € • ★ ${product.rating}",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.primary
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Button(
-                onClick = onClick,
-                modifier = Modifier.align(Alignment.End).padding(top = 28.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.tertiary,
-                    contentColor = MaterialTheme.colorScheme.onTertiary
-                )
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
             ) {
-                Text(text = "Voir le produit")
+                Text(
+                    text = "${product.title} (${product.stock} en stock)",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Text(
+                    text = product.brand,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.secondary
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = "${product.price} € • ★ ${product.rating}",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.primary
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+
+
+                Button(
+                    onClick = onFavoriteClick,
+                    modifier = Modifier
+                        .align(Alignment.End)
+                        .padding(top = 28.dp),
+                ) {
+                    val sentence =
+                        if (isFavorite) "Retirer des favoris" else "Ajouter aux favoris"
+                    Text(
+                        text = sentence
+                    )
+                }
+                Button(
+                    onClick = onClick,
+                    modifier = Modifier
+                        .align(Alignment.End)
+                        .padding(top = 8.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.tertiary,
+                        contentColor = MaterialTheme.colorScheme.onTertiary
+                    )
+                ) {
+                    Text(text = "Voir le produit")
+                }
             }
-        }
         }
 
     }

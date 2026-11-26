@@ -24,16 +24,16 @@ class MainActivity : ComponentActivity() {
         setContent {
             ProductExplorerTheme(darkTheme = true) {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    ProductHomeScreen(
-                        modifier = Modifier.padding(innerPadding),
-                        featuredProduct = sampleProduct(),
-                        onFeaturedProductClick = {}
-                    )
-//                    ProductCatalogScreen(
+//                    ProductHomeScreen(
 //                        modifier = Modifier.padding(innerPadding),
-//                        products = sampleProducts(),
-//                        onProductClick = {}
+//                        featuredProduct = sampleProduct(),
+//                        onFeaturedProductClick = {}
 //                    )
+                    ProductCatalogScreen(
+                        modifier = Modifier.padding(innerPadding),
+                        products = sampleProducts(),
+                        onProductClick = {}
+                    )
                 }
             }
         }
