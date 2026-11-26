@@ -2,11 +2,15 @@ package com.example.productexplorer.catalog
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
@@ -28,7 +32,9 @@ fun ProductCatalogScreen(
     searchQuery: String,
     onSearchQueryChange: (String) -> Unit,
     showOnlyInStock: Boolean,
+    showOnlyFavorite: Boolean,
     onToggleStockFilter: () -> Unit,
+    onToggleFavoriteOnlyFilter: () -> Unit,
     favoriteProductIds: List<Int>,
     onFavoriteClick: (Int) -> Unit,
     onProductClick: (ProductUi) -> Unit,
@@ -67,17 +73,44 @@ fun ProductCatalogScreen(
                 )
             }
 
+
             item {
-                Button(
-                    onClick = onToggleStockFilter
-                ) {
-                    val sentence =
-                        if (showOnlyInStock) "Afficher tous les produits" else "Afficher uniquement les produits en stock"
-                    Text(
-                        text = sentence
-                    )
+                val stockContainerColor =
+                    if (showOnlyInStock) MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.primary
+                val stockContentColor =
+                    if (showOnlyInStock) MaterialTheme.colorScheme.onSecondaryContainer else MaterialTheme.colorScheme.onPrimary
+
+                val favoriteOnlyContainerColor =
+                    if (showOnlyFavorite) MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.primary
+                val favoriteOnlyContentColor =
+                    if (showOnlyFavorite) MaterialTheme.colorScheme.onSecondaryContainer else MaterialTheme.colorScheme.onPrimary
+
+                Row{
+                    Button(
+                        onClick = onToggleStockFilter,
+                        shape = MaterialTheme.shapes.small,
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = stockContainerColor,
+                            contentColor = stockContentColor
+                        )
+                    ) {
+                        Text(text = "En stock")
+                    }
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Button(
+                        onClick = onToggleFavoriteOnlyFilter,
+                        shape = MaterialTheme.shapes.small,
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = favoriteOnlyContainerColor,
+                            contentColor = favoriteOnlyContentColor
+                        )
+                    ) {
+                        Text(text = "Mes favoris")
+                    }
+
                 }
             }
+
 
             item {
                 CategoryRow(categories = categories)

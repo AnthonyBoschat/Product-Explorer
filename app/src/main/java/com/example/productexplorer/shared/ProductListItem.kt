@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.productexplorer.ProductUi
 
@@ -23,6 +24,9 @@ fun ProductListItem(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val containerColor  = if(isFavorite) MaterialTheme.colorScheme.secondaryContainer   else MaterialTheme.colorScheme.primary
+    val contentColor    = if(isFavorite) MaterialTheme.colorScheme.onSecondaryContainer else MaterialTheme.colorScheme.onPrimary
+
     AppCard(modifier = modifier.fillMaxWidth()) {
         Text(
             text = "${product.title} (${product.stock} en stock)",
@@ -43,16 +47,20 @@ fun ProductListItem(
         Spacer(modifier = Modifier.height(8.dp))
 
 
+
         Button(
             onClick = onFavoriteClick,
             modifier = Modifier
                 .align(Alignment.End)
                 .padding(top = 28.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = containerColor,
+                contentColor = contentColor
+            )
         ) {
-            val sentence =
-                if (isFavorite) "Retirer des favoris" else "Ajouter aux favoris"
+
             Text(
-                text = sentence
+                text = "Favoris"
             )
         }
         Button(

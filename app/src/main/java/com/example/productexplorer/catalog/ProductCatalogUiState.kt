@@ -7,5 +7,6 @@ data class ProductCatalogUiState(
     val categories: List<String> = emptyList(),
     val searchQuery: String = "",
     val showOnlyInStock: Boolean = false,
+    val showOnlyFavorite: Boolean = false,
     val favoriteProductIds: List<Int> = emptyList()
 )
