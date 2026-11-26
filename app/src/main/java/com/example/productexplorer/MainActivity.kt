@@ -10,6 +10,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.example.productexplorer.catalog.ProductCatalogContainer
 import com.example.productexplorer.catalog.ProductCatalogScreen
+import com.example.productexplorer.home.ProductHomeScreen
 import com.example.productexplorer.theme.ProductExplorerTheme
 
 class MainActivity : ComponentActivity() {
@@ -35,6 +36,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-
-

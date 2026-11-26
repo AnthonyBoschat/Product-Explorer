@@ -40,23 +40,26 @@ fun ProductHomeScreen(
         }
 }
 
-
-
+// Preview Home Light
 @Preview
 @Composable
 fun ProductHomeScreenPreview() {
-    ProductHomeScreenPreviewContent(darkTheme = false)
+    ProductExplorerTheme {
+        Scaffold { innerPadding ->
+            ProductHomeScreen(
+                modifier = Modifier.padding(innerPadding),
+                featuredProduct = sampleProduct(),
+                onFeaturedProductClick = {}
+            )
+        }
+    }
 }
 
+// Preview Home Dark
 @Preview
 @Composable
 fun ProductHomeScreenDarkPreview() {
-    ProductHomeScreenPreviewContent(darkTheme = true)
-}
-
-@Composable
-private fun ProductHomeScreenPreviewContent(darkTheme: Boolean) {
-    ProductExplorerTheme(darkTheme = darkTheme) {
+    ProductExplorerTheme(darkTheme = true) {
         Scaffold { innerPadding ->
             ProductHomeScreen(
                 modifier = Modifier.padding(innerPadding),

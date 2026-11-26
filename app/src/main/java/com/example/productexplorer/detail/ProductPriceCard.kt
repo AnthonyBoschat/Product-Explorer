@@ -1,13 +1,10 @@
 package com.example.productexplorer.detail
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import com.example.productexplorer.shared.AppCard
 
 @Composable
 fun ProductPriceCard(
@@ -15,16 +12,18 @@ fun ProductPriceCard(
     price: Double,
     discountPercentage: Double,
 ) {
-    Card(modifier = modifier) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(
-                text = "$price €",
-                style = MaterialTheme.typography.headlineSmall
-            )
-            Text(
-                text = "Remise : $discountPercentage %",
-                style = MaterialTheme.typography.bodyMedium
-            )
-        }
+    AppCard(
+        modifier = modifier,
+        containerColor = MaterialTheme.colorScheme.tertiary,
+        contentColor = MaterialTheme.colorScheme.onTertiary
+    ) {
+        Text(
+            text = "$price €",
+            style = MaterialTheme.typography.headlineSmall
+        )
+        Text(
+            text = "Remise : $discountPercentage %",
+            style = MaterialTheme.typography.bodyMedium
+        )
     }
 }
