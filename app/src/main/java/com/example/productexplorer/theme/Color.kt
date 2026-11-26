@@ -1,4 +1,4 @@
-package com.example.productexplorer.ui.theme
+package com.example.productexplorer.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package com.example.productexplorer.product
+package com.example.productexplorer.detail
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,18 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.productexplorer.ui.product.components.AddToCartButton
-import com.example.productexplorer.ui.product.components.ProductAvailabilityCard
-import com.example.productexplorer.ui.product.components.ProductDescription
-import com.example.productexplorer.ui.product.components.ProductHeader
-import com.example.productexplorer.ui.product.components.ProductImage
-import com.example.productexplorer.ui.product.components.ProductPriceCard
-import com.example.productexplorer.ui.product.components.ProductRating
-import com.example.productexplorer.ui.product.components.ProductWarrantyField
-import com.example.productexplorer.ui.product.sample.ProductUi
-import com.example.productexplorer.ui.product.sample.sampleProduct
-import com.example.productexplorer.ui.product.sample.sampleProductOutOfStock
-import com.example.productexplorer.ui.theme.ProductExplorerTheme
+import com.example.productexplorer.ProductUi
+import com.example.productexplorer.sampleProduct
+import com.example.productexplorer.sampleProductOutOfStock
+import com.example.productexplorer.theme.ProductExplorerTheme
 
 @Composable
 fun ProductDetailScreen(

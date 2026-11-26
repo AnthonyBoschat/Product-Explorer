@@ -1,4 +1,4 @@
-package com.example.productexplorer.catalogue
+package com.example.productexplorer.catalog
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -10,15 +10,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.productexplorer.product.components.ProductListItem
-import com.example.productexplorer.ui.product.sample.ProductUi
+import com.example.productexplorer.shared.ProductListItem
+import com.example.productexplorer.ProductUi
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Surface
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.productexplorer.product.components.CategoryRow
-import com.example.productexplorer.ui.product.sample.sampleCategories
-import com.example.productexplorer.ui.product.sample.sampleProducts
-import com.example.productexplorer.ui.theme.ProductExplorerTheme
+import com.example.productexplorer.shared.CategoryRow
+import com.example.productexplorer.sampleCategories
+import com.example.productexplorer.sampleProducts
+import com.example.productexplorer.theme.ProductExplorerTheme
 
 
 @Composable

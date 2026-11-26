@@ -1,11 +1,10 @@
-package com.example.productexplorer.product.components
+package com.example.productexplorer.shared
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.productexplorer.home.components.CategoryChip
 import androidx.compose.foundation.lazy.items
 
 @Composable

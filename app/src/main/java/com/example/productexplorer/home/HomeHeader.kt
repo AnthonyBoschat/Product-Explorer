@@ -1,4 +1,4 @@
-package com.example.productexplorer.home.components
+package com.example.productexplorer.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.MaterialTheme

@@ -1,4 +1,4 @@
-package com.example.productexplorer.ui.product.components
+package com.example.productexplorer.detail
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding

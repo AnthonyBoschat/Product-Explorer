@@ -1,4 +1,4 @@
-package com.example.productexplorer.product.components
+package com.example.productexplorer.shared
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -17,7 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.productexplorer.ui.product.sample.ProductUi
+import com.example.productexplorer.ProductUi
 
 
 @Composable

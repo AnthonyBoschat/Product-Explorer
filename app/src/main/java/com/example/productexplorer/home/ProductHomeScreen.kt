@@ -13,14 +13,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.productexplorer.home.components.CategoriesSection
-import com.example.productexplorer.home.components.DailyOfferBox
-import com.example.productexplorer.home.components.FeaturedProductSection
-import com.example.productexplorer.home.components.HomeHeader
-import com.example.productexplorer.home.components.SearchPreviewBar
-import com.example.productexplorer.ui.product.sample.ProductUi
-import com.example.productexplorer.ui.product.sample.sampleProduct
-import com.example.productexplorer.ui.theme.ProductExplorerTheme
+import com.example.productexplorer.ProductUi
+import com.example.productexplorer.sampleProduct
+import com.example.productexplorer.theme.ProductExplorerTheme
 
 @Composable
 fun ProductHomeScreen(

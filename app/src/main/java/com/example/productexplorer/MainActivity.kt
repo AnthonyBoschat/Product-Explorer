@@ -13,12 +13,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.productexplorer.catalogue.ProductCatalogScreen
+import com.example.productexplorer.catalog.ProductCatalogScreen
 import com.example.productexplorer.home.ProductHomeScreen
-import com.example.productexplorer.ui.product.sample.ProductUi
-import com.example.productexplorer.ui.product.sample.sampleProduct
-import com.example.productexplorer.ui.product.sample.sampleProducts
-import com.example.productexplorer.ui.theme.ProductExplorerTheme
+import com.example.productexplorer.theme.ProductExplorerTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,16 +24,16 @@ class MainActivity : ComponentActivity() {
         setContent {
             ProductExplorerTheme(darkTheme = true) {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-//                    ProductCatalogScreen(
-//                        modifier = Modifier.padding(innerPadding),
-//                        products = sampleProducts(),
-//                        onProductClick = {}
-//                    )
                     ProductHomeScreen(
                         modifier = Modifier.padding(innerPadding),
                         featuredProduct = sampleProduct(),
                         onFeaturedProductClick = {}
                     )
+//                    ProductCatalogScreen(
+//                        modifier = Modifier.padding(innerPadding),
+//                        products = sampleProducts(),
+//                        onProductClick = {}
+//                    )
                 }
             }
         }
