@@ -16,8 +16,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.productexplorer.ProductUi
-import com.example.productexplorer.sampleCategories
-import com.example.productexplorer.sampleProducts
 import com.example.productexplorer.shared.CategoryRow
 import com.example.productexplorer.shared.ProductListItem
 import com.example.productexplorer.theme.ProductExplorerTheme
@@ -82,7 +80,7 @@ fun ProductCatalogScreen(
             }
 
             item {
-                CategoryRow(categories = sampleCategories())
+                CategoryRow(categories = categories)
             }
 
             item {
@@ -113,8 +111,6 @@ fun ProductCatalogScreen(
 fun ProductCatalogScreenLightPreview() {
     ProductExplorerTheme(darkTheme = false) {
         ProductCatalogContainer(
-            products = sampleProducts(),
-            categories = sampleCategories(),
             onProductClick = {}
         )
     }
@@ -125,8 +121,6 @@ fun ProductCatalogScreenLightPreview() {
 fun ProductCatalogScreenDarkPreview() {
     ProductExplorerTheme(darkTheme = true) {
         ProductCatalogContainer(
-            products = sampleProducts(),
-            categories = sampleCategories(),
             onProductClick = {}
         )
     }

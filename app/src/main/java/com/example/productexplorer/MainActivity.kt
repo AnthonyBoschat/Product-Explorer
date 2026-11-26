@@ -26,8 +26,6 @@ class MainActivity : ComponentActivity() {
 //                        onFeaturedProductClick = {}
 //                    )
                     ProductCatalogContainer(
-                        products = sampleProducts(),
-                        categories = sampleCategories(),
                         onProductClick = {},
                         modifier = Modifier.padding(innerPadding),
                     )
